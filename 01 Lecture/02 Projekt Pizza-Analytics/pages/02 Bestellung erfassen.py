@@ -10,7 +10,7 @@ st.set_page_config(page_title="La Dolce Pizza", layout="wide", page_icon=":pizza
 
 
 # %%
-conn = sqlite3.connect('oth-gp-pizza.db')
+conn = sqlite3.connect('../oth-gp-pizza.db')
 cursor = conn.cursor()
 
 
