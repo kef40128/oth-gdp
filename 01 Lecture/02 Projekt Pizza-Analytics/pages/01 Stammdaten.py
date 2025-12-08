@@ -96,7 +96,7 @@ with st.expander("Level 2: CRUD - Daten anlegen, ändern und löschen"):
 with st.expander("Level 3: Arbeit mit Datenbanken"):
     import sqlite3
 
-    conn = sqlite3.connect('../oth-gp-pizza.db')
+    conn = sqlite3.connect('oth-gp-pizza.db')
     cursor = conn.cursor()
 
     # Pizza hinzufügen
