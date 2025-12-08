@@ -31,12 +31,14 @@ def bestellung_hinzufuegen():
     # Auswahl der Pizza und des Kunden
     auswahl_pizza = st.selectbox("Pizza auswählen:", pizza_namen)
     auswahl_kunde = st.selectbox("Kunde auswählen:", kunden_namen)
+    menge = st.number_input("Menge:", min_value=1, step=1)
+
 
     if st.button("Bestellung hinzufügen"):
         today = datetime.date.today()
         pizza_id = pizza_ids[pizza_namen.index(auswahl_pizza)]
         kunden_id = kunden_ids[kunden_namen.index(auswahl_kunde)]
-        cursor.execute("INSERT INTO bestellungen (bestellzeitpunkt, pizza_id, kunden_id) VALUES (?, ?, ?)", (today, pizza_id, kunden_id))
+        cursor.execute("INSERT INTO bestellungen (bestellzeitpunkt, pizza_id, kunde_id, menge) VALUES (?, ?, ?, ?)", (today, pizza_id, kunden_id, menge))
         conn.commit()
         st.success("Bestellung hinzugefügt!")
 

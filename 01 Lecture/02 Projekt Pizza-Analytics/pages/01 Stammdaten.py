@@ -139,7 +139,7 @@ with st.expander("Level 3: Arbeit mit Datenbanken"):
             cursor.execute("SELECT preis FROM pizzen WHERE name = ?", (l3_name,))
             l3_aktueller_preis = cursor.fetchone()[0]
             l3_neue_zutaten = st.text_area("Neue Zutaten (durch Komma getrennt):", value=l3_aktuelle_zutaten)
-            l3_neuer_preis = st.text_area("Neuer Preis:", value=l3_aktueller_preis)
+            l3_neuer_preis = st.number_input("Neuer Preis:", value=l3_aktueller_preis)
             if st.button("Ändern!"):
                 cursor.execute("UPDATE pizzen SET zutaten = ? WHERE name = ?", (l3_neue_zutaten, l3_name))
                 cursor.execute("UPDATE pizzen SET preis = ? WHERE name = ?", (l3_neuer_preis, l3_name))
